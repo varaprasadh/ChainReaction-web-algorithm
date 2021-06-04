@@ -159,7 +159,7 @@ export class ChainReaction{
         // TODO validate the player as well, 
         // can put in a empty cell,
         // can put in their cell, +1 💟 
-    
+        states.push(JSON.parse(JSON.stringify(prevState)));
         
         const queue = [];
         
