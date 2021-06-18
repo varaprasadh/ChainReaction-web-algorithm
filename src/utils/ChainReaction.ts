@@ -177,8 +177,19 @@ export class ChainReaction{
         queue.push(cell);
         queue.push(null);
 
+        let levels = 0;
         while(queue.length > 0){ 
-
+            levels+=1;
+            if(levels>10){
+                // return same props declare the winner 
+                // check winner 
+                console.log("max Depth reached");
+                return {
+                    message:"max Depth reached",
+                    board: prevState,
+                    states
+                };
+            }
             let cell = queue.shift();
             while(cell){
                     if (this.isValidPosition(prevState, cell.position)) {
@@ -200,6 +211,9 @@ export class ChainReaction{
                     }
                 cell = queue.shift();
             };
+            
+            // check winner and return 
+
             if(queue.length){
                 queue.push(null);
             };
